@@ -1,12 +1,26 @@
 package br.strategy;
 
+import br.problema3.Pedido;
+
 /**
  * @author vinic
  */
 public class Sedex implements FormaDeEntrega {
 
+    private static Sedex objeto;
+    
+    private Sedex() {}
+    
+    public static Sedex getInstance() {
+        if(objeto == null) {
+            objeto = new Sedex();
+        }
+        return objeto;
+    }
+    
     @Override
-    public double getPrecoFrete(int peso) {
+    public double getPrecoFrete(Pedido pedido) {
+        int peso = pedido.getPesoTotalPedido();
         if(peso < 500) {
             return 12.5;
         } else if(peso < 750) {

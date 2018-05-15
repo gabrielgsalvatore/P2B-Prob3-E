@@ -13,11 +13,13 @@ public class FormaDeEntregaFactory {
     public static FormaDeEntrega get(TipoDeEntregas tipo) throws TipoEntregaInvalido {
         switch(tipo) {
             case SEDEX:
-                return new Sedex();
+                return Sedex.getInstance();
             case ENCOMENDA_PAC:
-                return new EncomendaPAC();
+                return EncomendaPAC.getInstance();
             case RETIRADA_NO_LOCAL:
-                return new RetiradaNoLocal();
+                return RetiradaNoLocal.getInstance();
+            case MOTOBOY:
+                return Motoboy.getInstance();
             default:
                 throw new TipoEntregaInvalido();
         }

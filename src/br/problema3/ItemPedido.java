@@ -14,7 +14,7 @@ public class ItemPedido {
         setQuantidade(quantidade);
     }
 
-    protected Produto getProduto() {
+    public Produto getProduto() {
         return produto;
     }
 

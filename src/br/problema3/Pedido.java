@@ -16,15 +16,27 @@ public class Pedido {
 
     public Pedido() {
         this.itens = new ArrayList<>();
-        this.formaDeEntrega = new RetiradaNoLocal();
+        this.formaDeEntrega = RetiradaNoLocal.getInstance();
     }
     
     public double getValorEntrega() {
-        double aux = 0;
-        for(ItemPedido item: itens) {
-            aux += this.formaDeEntrega.getPrecoFrete(item.getProduto().getPeso() * item.getQuantidade());
+        return this.formaDeEntrega.getPrecoFrete(this);
+    }
+    
+    public int getPesoTotalPedido() {
+        int peso = 0;
+        for(ItemPedido item: this.itens) {
+            peso += item.getProduto().getPeso() * this.getQuantidadeItens();
         }
-        return aux;
+        return peso;
+    }
+    
+    public int getQuantidadeItens() {
+        int qtd = 0;
+        for(ItemPedido item: this.getItens()) {
+            qtd += item.getQuantidade();
+        }
+        return qtd;
     }
     
     public double getValorTotal() {
@@ -33,6 +45,10 @@ public class Pedido {
             aux += item.getValorItem();
         }
         return aux;
+    }
+    
+    public ArrayList<ItemPedido> getItens() {
+        return this.itens;
     }
     
     public void setFormaDePagamento(FormaDeEntrega forma) {
