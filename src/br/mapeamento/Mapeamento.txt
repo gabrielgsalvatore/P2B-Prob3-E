@@ -1,0 +1,11 @@
+context:
+	Pedido.java
+strategy:
+	FormaDeEntrega.java
+concreteStrategy singleton:
+	EncomendaPAC.java
+	Motoboy.java
+	RetiradaNoLocal.java
+	Sedex.java
+factoryMethod:
+	FormaDeEntregaFactory.java
