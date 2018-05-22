@@ -9,3 +9,9 @@ concreteStrategy singleton:
 	Sedex.java
 factoryMethod:
 	FormaDeEntregaFactory.java
+
+--> Prof. Marcel: e o mapeamento de Singleton?
+
+--> Prof. Marcel: o método main não alternou entre diferentes tipos de entrega para o mesmo pedido, como foi solicitado.
+
+--> Prof. Marcel: Nota 2,7
